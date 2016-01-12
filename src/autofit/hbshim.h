@@ -16,8 +16,13 @@
 /***************************************************************************/
 
 
+<<<<<<< HEAD:src/autofit/hbshim.h
 #ifndef __HBSHIM_H__
 #define __HBSHIM_H__
+=======
+#ifndef PFRDRIVR_H_
+#define PFRDRIVR_H_
+>>>>>>> 37412ff... Don't use macro names that contain `__' [1/2].:src/pfr/pfrdrivr.h
 
 
 #include <ft2build.h>
@@ -50,7 +55,11 @@ FT_BEGIN_HEADER
 
 FT_END_HEADER
 
+<<<<<<< HEAD:src/autofit/hbshim.h
 #endif /* __HBSHIM_H__ */
+=======
+#endif /* PFRDRIVR_H_ */
+>>>>>>> 37412ff... Don't use macro names that contain `__' [1/2].:src/pfr/pfrdrivr.h
 
 
 /* END */
