@@ -4,7 +4,11 @@
 /*                                                                         */
 /*    HarfBuzz interface for accessing OpenType features (specification).  */
 /*                                                                         */
+<<<<<<< HEAD:src/autofit/hbshim.h
 /*  Copyright 2013-2015 by                                                 */
+=======
+/*  Copyright 2002-2016 by                                                 */
+>>>>>>> 9adeab6... Update copyright year.:src/pfr/pfrdrivr.h
 /*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 /*                                                                         */
 /*  This file is part of the FreeType project, and may only be used,       */
