@@ -51,8 +51,13 @@ Introduction
   credit/disclaimer to use in compliance with this license.  We thus
   encourage you to use the following text:
 
+<<<<<<< HEAD:NOTICE
    """  
     Portions of this software are copyright © <year> The FreeType
+=======
+   """
+    Portions of this software are copyright Â© <year> The FreeType
+>>>>>>> 44341d2... Encoding tweaks.:docs/FTL.TXT
     Project (www.freetype.org).  All rights reserved.
    """
 
