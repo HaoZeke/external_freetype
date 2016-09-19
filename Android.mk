@@ -1,10 +1,10 @@
 # this is now the default FreeType build for Android
 #
 ifndef USE_FREETYPE
-USE_FREETYPE := 2.6.5
+USE_FREETYPE := 2.7.0
 endif
 
-ifeq ($(USE_FREETYPE),2.6.5)
+ifeq ($(USE_FREETYPE),2.7.0)
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
