@@ -1,3 +1,77 @@
+2016-09-28  Werner Lemberg  <wl@gnu.org>
+
+	*/*: s/FT_MEM_ZERO/FT_ZERO/ where appropriate.
+
+2016-09-27  Werner Lemberg  <wl@gnu.org>
+
+	[truetype] Trace number of executed opcodes.
+
+	* src/truetype/ttinterp.c (TT_RunIns): Implement it.
+
+2016-09-27  Werner Lemberg  <wl@gnu.org>
+
+	[truetype] Speed up `TT_Load_Glyph'.
+
+	This avoids additional calls to `tt_face_lookup_table' for the
+	`glyf' table, which can be expensive.
+
+	* include/freetype/internal/tttypes.h (TT_LoaderRec): Move
+	`glyf_offset' field to ...
+	(TT_FaceRec): ... this structure.
+	* src/truetype/ttgload.c (load_truetype_glyph): Updated.
+	(tt_loader_init): Move initialization of `glyf_offset' to ...
+	* src/truetype/ttpload.c (tt_face_load_loca): ... this function.
+
+2016-09-27  Werner Lemberg  <wl@gnu.org>
+
+	[truetype] Introduce dynamic limits for some bytecode opcodes.
+
+	This speeds up FreeType's handling of malformed fonts.
+
+	* src/truetype/ttinterp.c (TT_RunIns): Set up limits for the number
+	of twilight points, the total number of negative jumps, and the
+	total number of loops in LOOPCALL opcodes.  The values are based on
+	the number of points and entries in the CVT table.
+	(Ins_JMPR): Test negative jump counter.
+	(Ins_LOOPCALL): Test loopcall counter.
+
+	* src/truetype/ttinterp.h (TT_ExecContext): Updated.
+
+	* docs/CHANGES: Updated.
+
+2016-09-25  Werner Lemberg  <wl@gnu.org>
+
+	[truetype] Sanitize only last entry of `loca' table.
+
+	Without this patch, a loca sequence like `0 100000 0 100000 ...',
+	where value 100000 is larger than the `glyf' table size, makes
+	FreeType handle the whole `glyf' table as a single glyph again and
+	again, which is certainly invalid (and can be very slow, too).
+
+	* src/truetype/ttpload.c (tt_face_get_location): Implement.
+	Improve tracing messages.
+
+2016-09-25  Werner Lemberg  <wl@gnu.org>
+
+	* src/tools/ftfuzzer/ftfuzzer.cc (LLVMFuzzerTestOneInput): Fix typo.
+
+2016-09-24  Werner Lemberg  <wl@gnu.org>
+
+	[autofit] Tracing fixes.
+
+	* src/autofit/afmodule.c (af_autofitter_load_glyph): Call dumping
+	functions only if we actually do tracing.
+
+2016-09-22  Alexei Podtelezhnikov  <apodtele@gmail.com>
+
+	[smooth] Reduce divisions in the line renderer.
+
+	We don't need some divisions if a line segments stays within a single
+	row or a single column of pixels.
+
+	* src/smooth/ftgrays.c (gray_render_line) [FT_LONG64]: Make divisions
+	conditional.
+
 2016-09-15  Alexei Podtelezhnikov  <apodtele@gmail.com>
 
 	* src/smooth/ftgrays.c (gray_sweep): Remove check for empty table.
